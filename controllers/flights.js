@@ -15,13 +15,9 @@ function index(req,res){
     })}
 
 function create(req, res){
-    const flight = new Flight(req.body);
-    flight.save(function(err){
-        //suggested handling of errors
-        if (err) return res.render("flights/new");
-        //for now, redirect straight back to new.ejs
-        res.redirect("flights/new");
-    })
+   Flight.create(req.body, function(err, flightDoc){
+       res.redirect("flights/index")
+   })
 }
 
 function newFlight(req,res){
