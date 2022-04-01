@@ -7,14 +7,14 @@ module.exports = {
 }
 
 function index(req,res){
-    res.render("flights/index");
-}
+    Flight.find({}, function(err, flights){
+        res.render("flights/index", {
+            flights,
+            title: "All Flights"
+        })
+    })}
 
-function newFlight(req,res){
-    res.render("flights/new");
-}
-
-function create(re, res){
+function create(req, res){
     const flight = new Flight(req.body);
     flight.save(function(err){
         //suggested handling of errors
@@ -22,4 +22,8 @@ function create(re, res){
         //for now, redirect straight back to new.ejs
         res.redirect("flights/new");
     })
+}
+
+function newFlight(req,res){
+    res.render("flights/new")
 }
