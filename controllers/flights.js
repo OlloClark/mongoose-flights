@@ -8,6 +8,9 @@ module.exports = {
 
 function index(req,res){
     Flight.find({}, function(err, flights){
+        console.log(flights);
+
+        //forEach loop
         res.render("flights/index", {
             flights,
             title: "All Flights"
@@ -16,7 +19,8 @@ function index(req,res){
 
 function create(req, res){
    Flight.create(req.body, function(err, flightDoc){
-       res.redirect("flights/index")
+       res.redirect("/flights/index")
+   
    })
 }
 
