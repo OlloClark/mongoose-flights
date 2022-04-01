@@ -9,8 +9,11 @@ module.exports = {
 function index(req,res){
     Flight.find({}, function(err, flights){
         console.log(flights);
+    
+        // Flight.forEach(function(flight){
+        // console.log(flight)
+        // })
 
-        //forEach loop
         res.render("flights/index", {
             flights,
             title: "All Flights"
