@@ -16,7 +16,18 @@ const flightSchema = new Schema({
         min: 10,
         max: 9999
     },
-    departs: Date
-});
+    departs: {
+        type: Date,
+        //idea credit: Ben Orloff
+        default: function() {
+            let today = new Date();
+            let year = today.getFullYear();
+            let month = today.getMonth();
+            let day = today.getDay();
+        return new Date(year + 1, month, day);
+        }
+
+    }}
+);
 
 module.exports = mongoose.model('Flight', flightSchema);
