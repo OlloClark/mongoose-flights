@@ -9,11 +9,26 @@
     <div><%= flight.flightNo%> </div>
     <div><em>Departs</em></div>
     <div><%= flight.departs %> </div>
-    <div><em>Destinations:</em></div>
     
 </section>
 
+<br><br>
+<h2>Destinations</h2>
+<form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+  <label>Destination</label>
+  <select name="arrival">
+    <option value="AUS">AUS</option>
+    <option value="DFW">DFW</option>
+    <option value="DEN">DEN</option>
+    <option value="LAX">LAX</option>
+    <option value="SAN">SAN</option>
+  </select>
+  <input type="submit" value="Add destination">
+</form>
+
+
 <% if (flight.destinations.length) { %>
+
     <table>
       <thead>
         <tr>
@@ -32,7 +47,5 @@
   <% } else { %>
     <h5>No destinations listed</h5>
   <% } %>
-
-
 
 <%- include('../partials/footer') %>
