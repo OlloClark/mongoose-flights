@@ -1,8 +1,16 @@
 <%- include('../partials/header') %>
 
-
-<p>testing show view</p>
-
-
+<section>
+    <div><em>Airline:</em></div>
+    <div><%= flight.airline %> </div>
+    <div><em>Airport:</em></div>
+    <div><%= flight.airport %> </div>
+    <div><em>Flight Number:</em></div>
+    <div><%= flight.flightNo%> </div>
+    <div><em>Departs</em></div>
+    <div><%= flight.departs %> </div>
+    <div><em>Destinations:</em></div>
+    <div><%= flight.destinations %> </div>
+</section>
 
 <%- include('../partials/footer') %>
