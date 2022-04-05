@@ -6,6 +6,6 @@ const ticketsCtrl = require('../controllers/tickets');
 router.get("/flights/:id/tickets/new", ticketsCtrl.new);
 
 //POST /flights/:id/tickets/new page
-router.post('/flights/:id/tickets/new', ticketsController.create);
+router.post('/flights/:id/tickets/new', ticketsCtrl.create);
 
 module.exports = router;
