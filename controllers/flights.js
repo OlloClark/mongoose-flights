@@ -18,9 +18,13 @@ function index(req,res) {
     })}
 
 function create(req, res) {
-   Flight.create(req.body, function(err, flightDoc){
-       if (err) return res.redirect("flights/new");
-       res.redirect("index")
+    if (!req.body.departs) {
+        req.body.departs = undefined
+    }
+    console.log(req.body)
+    Flight.create(req.body, function(err, flightDoc){
+        if (err) return res.redirect("flights/new");
+        res.redirect("index")
    
    })
 }
