@@ -10,7 +10,6 @@ function create(req, res){
     Flight.findById(req.params.id, function(err, flightDoc){
         req.body.flight = flightDoc._id;
         req.body.price = parseInt(req.body.price)
-        console.log(req.body);
         Ticket.create(req.body, function(err, ticket){
             res.redirect(`/flights/${flightDoc._id}`)
         })

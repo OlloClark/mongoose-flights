@@ -28,14 +28,7 @@ const flightSchema = new Schema({
     },
     departs: {
         type: Date,
-        //idea credit: Ben Orloff
-        default: function() {
-            let today = new Date();
-            let year = today.getFullYear();
-            let month = today.getMonth();
-            let day = today.getDay();
-        return new Date(year + 1, month, day);
-        }
+        default: function() {return new Date(new Date().setFullYear(new Date().getFullYear() + 1))}
     },
     destinations: [destinationSchema]
 }
